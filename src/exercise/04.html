@@ -11,14 +11,26 @@
 
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
+
+    const reuseableComponent = ({children}) => {
+      return <div className="message">{children}</div>
+    }
+
     const element = (
       <div className="container">
-        <div className="message">Hello World</div>
-        <div className="message">Goodbye World</div>
+        <reuseableComponent children="Hello World" />
+        <reuseableComponent children="Goodbye World" />
       </div>
     )
 
+    const newElement = React.createElement(reuseableComponent, {
+      children: 'Hello World',
+    })
+    console.log(newElement)
+    // <div className="message">Hello World</div>
+    // <div className="message">Goodbye World</div>
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
-    ReactDOM.render(element, document.getElementById('root'))
+    // ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(newElement, document.getElementById('root'))
   </script>
 </body>

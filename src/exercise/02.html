@@ -1,28 +1,53 @@
 <!-- Intro to raw React APIs -->
 <!-- http://localhost:3000/isolated/exercise/02.html -->
+<html>
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
 
-<body>
-  <div id="root"></div>
+    <script type="module">
+      const rootElement = document.getElementById('root')
 
-  <!-- 💣 remove this line
-  <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
-  💣 remove this line -->
+      // You're going to re-implement this code using React!
+      // 💣 So go ahead and delete this implementation (or comment it out for now)
+      // These three lines are similar to React.createElement
+      // const element = doc`ument.createElement('div')
+      // element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
+      // element.className = 'container' // 💰 in React, this is also called the "className" prop
+      // This is similar to ReactDOM.render
+      // rootElement.append(element)
 
-  <script type="module">
-    const rootElement = document.getElementById('root')
+      //     <div id="root">
+      //   <div class="container">
+      //     <span>Hello</span>
+      //     <span>World</span>
+      //   </div>
+      // </div>
 
-    // You're going to re-implement this code using React!
-    // 💣 So go ahead and delete this implementation (or comment it out for now)
-    // These three lines are similar to React.createElement
-    const element = document.createElement('div')
-    element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
-    element.className = 'container' // 💰 in React, this is also called the "className" prop
-    // This is similar to ReactDOM.render
-    rootElement.append(element)
+      const HelloSpan = React.createElement('span', {id: 'jsjs'}, 'Hello ')
+      const WorldSpan = React.createElement('span', null, 'World')
+      console.log({HelloSpan})
+      const HelloComponent = React.createElement(
+        'div',
+        {className: 'container'},
+        HelloSpan,
+        WorldSpan,
+      )
 
-    // 🐨 Please re-implement the regular document.createElement code above
-    // with these React API calls
-    // 💰 The example in the markdown file should be a good hint for you.
-  </script>
-</body>
+      ReactDOM.render(HelloComponent, rootElement)
+
+      // 🐨 Please re-implement the regular document.createElement code above
+      // with these React API calls
+      // 💰 The example in the markdown file should be a good hint for you.
+    </script>
+  </body>
+</html>
